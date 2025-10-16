@@ -1,0 +1,14 @@
+[Unit]
+Description=JupyterLab
+After=network.target
+
+[Service]
+User=ubuntu
+ExecStart=/home/ubuntu/anaconda3/envs/evolvepro/bin/jupyter-lab --ip=0.0.0.0 --port=8888 --no-browser --notebook-dir=/shared 
+WorkingDirectory=/shared
+Restart=always
+# You can also use RestartSec=10 to wait 10 seconds before restarting
+Environment="PATH=/usr/bin:/bin:/usr/local/bin:/opt/slurm/bin" # Optional if needed
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,94 @@
+Transferred model to GPU
+Read /shared/content/output/c143.fasta with 44 sequences
+Processing 1 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 2 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 3 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 4 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 5 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 6 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 7 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 8 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 9 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 10 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 11 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 12 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 13 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 14 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 15 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 16 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 17 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 18 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 19 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 20 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 21 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 22 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 23 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 24 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 25 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 26 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 27 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 28 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 29 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 30 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 31 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 32 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 33 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 34 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 35 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 36 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 37 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 38 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 39 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 40 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 41 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 42 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 43 of 44 batches (1 sequences)
+Device: cuda:0
+Processing 44 of 44 batches (1 sequences)
+Device: cuda:0
+Saved representations to /shared/content/output/c143_esm2_t48_15B_UR50D
+Shape of concatenated DataFrame: (44, 5120)
+Saved concatenated representations to /shared/content/output/c143_esm2_t48_15B_UR50D.csv
+

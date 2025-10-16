@@ -1,0 +1,27 @@
+
+CondaError: Run 'conda init' before 'conda activate'
+
+Traceback (most recent call last):
+  File "/shared/EvolvePro/evolvepro/plm/esm/extract.py", line 208, in <module>
+    main()
+  File "/shared/EvolvePro/evolvepro/plm/esm/extract.py", line 191, in main
+    run(args)
+  File "/shared/EvolvePro/evolvepro/plm/esm/extract.py", line 84, in run
+    model = model.cuda()
+            ^^^^^^^^^^^^
+  File "/home/ubuntu/anaconda3/envs/evolvepro/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1053, in cuda
+    return self._apply(lambda t: t.cuda(device))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/anaconda3/envs/evolvepro/lib/python3.11/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/home/ubuntu/anaconda3/envs/evolvepro/lib/python3.11/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/home/ubuntu/anaconda3/envs/evolvepro/lib/python3.11/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/home/ubuntu/anaconda3/envs/evolvepro/lib/python3.11/site-packages/torch/nn/modules/module.py", line 930, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/home/ubuntu/anaconda3/envs/evolvepro/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1053, in <lambda>
+    return self._apply(lambda t: t.cuda(device))
+                                 ^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 39.49 GiB of which 9.38 MiB is free. Including non-PyTorch memory, this process has 39.48 GiB memory in use. Of the allocated memory 39.07 GiB is allocated by PyTorch, and 863.00 KiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

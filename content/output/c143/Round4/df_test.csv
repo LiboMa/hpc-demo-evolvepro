@@ -1,0 +1,2 @@
+,variant,y_pred,y_actual,y_actual_scaled,y_actual_binary,dist_metric,std_predictions
+41,WT Wild-type sequence,0.7503017425493728,,,,,0.0
