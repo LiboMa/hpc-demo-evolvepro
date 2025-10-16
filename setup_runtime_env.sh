@@ -29,9 +29,15 @@ python -m pip install --upgrade jupyter
 pwd
 }
 
-setup_jupyter_env () {
+setup_jupyter_service () {
+
+# used for setup jupyter service
+echo "this is used for setup jupiter service"
 
 }
 
 
+install_conda
 setup_conda
+
+setup_jupyter_service
