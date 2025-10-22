@@ -1,0 +1,67 @@
+# ============================================================================
+# Minimal Configuration - Only Required and Essential Settings
+# Based on your ParallelCluster template
+# ============================================================================
+
+# Required Configuration
+key_name = "sa-malibo-hpc-east-2"  # REQUIRED: Replace with your EC2 key pair name
+cluster_name = "sansheng-hpc-cluster"
+allowed_ssh_cidr = "203.0.113.0/24"  # SECURITY: Replace with your IP range
+
+# VPC and Networking (Minimal Configuration)
+vpc_cidr = "10.0.0.0/16"
+availability_zones = ["us-east-2a", "us-east-2b", "us-east-2c"]
+public_subnet_cidrs = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+private_subnet_cidrs = ["10.0.11.0/24", "10.0.12.0/24", "10.0.13.0/24"]
+compute_subnet_index = 0  # Use first private subnet for all compute nodes
+
+# Head Node Configuration
+head_node_instance_type = "g6.xlarge"  # GPU-enabled head node
+enable_dcv = true                      # Enable remote desktop
+
+# Simple Queue Configuration (Based on Your Template)
+compute_queues = {
+  # High-performance GPU queue for H100 training
+  "high-gpu-queue" = {
+    instance_types = ["p5.4xlarge"]  # H100 GPUs - Match your template
+    min_count     = 0
+    max_count     = 4                # Match your template
+    root_volume_size = 120
+    enable_placement_group = true
+  }
+  
+  # GPU inference queue
+  "gpu-queue-inference" = {
+    instance_types = ["g6f.2xlarge"]  # L4 GPUs - Match your template
+    min_count     = 0
+    max_count     = 10               # Match your template
+    root_volume_size = 120
+  }
+  
+  # High CPU queue
+  "cpu-queue-high" = {
+    instance_types = ["c7i.16xlarge"]  # Match your template
+    min_count     = 0
+    max_count     = 50                # Match your template
+    root_volume_size = 120
+  }
+  
+  # Default CPU queue
+  "cpu-queue-default" = {
+    instance_types = ["c7i.xlarge"]   # Match your template (c7i.xlarge)
+    min_count     = 0
+    max_count     = 50               # Match your template
+    root_volume_size = 120
+  }
+}
+
+# Storage Configuration
+enable_efs = true          # Use EFS as primary shared storage
+enable_fsx_lustre = false  # Disable FSx Lustre for cost savings
+
+# Basic Tags
+additional_tags = {
+  Project     = "ParallelCluster"
+  Environment = "dev"
+  Owner       = "hpc-for-sansheng"
+}
