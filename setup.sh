@@ -42,7 +42,7 @@ sudo systemctl daemon-reload && sudo systemctl restart jupyterlab
 
 ## addition install
 #
-sudo apt -y install seqtk
+sudo apt udpate && sudo apt -y install seqtk
 
 
 install_conda
