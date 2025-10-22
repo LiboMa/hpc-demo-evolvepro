@@ -27,8 +27,16 @@ HeadNode:
 Scheduling:
   Scheduler: slurm
   SlurmSettings:
-    ScaledownIdletime: 10
+    ScaledownIdletime: 5
     QueueUpdateStrategy: TERMINATE
+    # Additional Slurm Settings (uncomment and configure as needed)
+    # EnableMemoryBasedScheduling: true
+    # Database:
+    #   Uri: mysql://username:password@hostname:port/database_name
+    # Dns:
+    #   DisableManagedDns: false
+    # CustomSlurmSettings:
+    #   - Include: /opt/slurm/etc/slurm.conf.d/custom.conf
   SlurmQueues:
     # High-Performance GPU Queue for training/HPC workloads (H100 GPUs)
     - Name: high-gpu-queue
@@ -49,6 +57,18 @@ Scheduling:
           InstanceType: p5.4xlarge
           MinCount: 0
           MaxCount: 4
+          # Capacity Block Configuration (uncomment and configure if using capacity blocks)
+          # CapacityReservationTarget:
+          #   CapacityReservationId: cr-1234567890abcdef0
+          # CapacityType: capacity_block
+          # 
+          # Advanced Options for High-Performance GPU Workloads
+          # SpotPrice: 15.00  # Set spot price for cost optimization
+          # Efa:  # Enhanced Fabric Adapter for HPC workloads
+          #   Enabled: true
+          #   GdrSupport: true  # GPU Direct RDMA support
+          # DisableSimultaneousMultithreading: false
+          # SchedulableMemory: 768000  # MB, adjust based on workload needs
       Iam:
         AdditionalIamPolicies:
           - Policy: arn:aws:iam::aws:policy/AmazonS3FullAccess
@@ -74,6 +94,15 @@ Scheduling:
           InstanceType: g6f.2xlarge
           MinCount: 0
           MaxCount: 10
+          # Capacity Block Configuration (uncomment and configure if using capacity blocks)
+          # CapacityReservationTarget:
+          #   CapacityReservationId: cr-1234567890abcdef0
+          # CapacityType: capacity_block
+          # 
+          # Advanced Options for GPU Inference Workloads
+          # SpotPrice: 2.50  # Set spot price for cost optimization
+          # DisableSimultaneousMultithreading: false
+          # SchedulableMemory: 30000  # MB, adjust based on inference workload needs
     
     # High CPU Queue for compute-intensive workloads
     - Name: cpu-queue-high
@@ -92,6 +121,15 @@ Scheduling:
           InstanceType: c7i.16xlarge
           MinCount: 0
           MaxCount: 50
+          # Capacity Block Configuration (uncomment and configure if using capacity blocks)
+          # CapacityReservationTarget:
+          #   CapacityReservationId: cr-1234567890abcdef0
+          # CapacityType: capacity_block
+          # 
+          # Advanced Options for High-CPU Workloads
+          # SpotPrice: 3.50  # Set spot price for cost optimization
+          # DisableSimultaneousMultithreading: true  # Disable hyperthreading for CPU-intensive tasks
+          # SchedulableMemory: 120000  # MB, adjust based on memory requirements
       Iam:
         AdditionalIamPolicies:
           - Policy: arn:aws:iam::aws:policy/AmazonS3FullAccess
@@ -115,6 +153,15 @@ Scheduling:
           InstanceType: c7i.xlarge
           MinCount: 0
           MaxCount: 50
+          # Capacity Block Configuration (uncomment and configure if using capacity blocks)
+          # CapacityReservationTarget:
+          #   CapacityReservationId: cr-1234567890abcdef0
+          # CapacityType: capacity_block
+          # 
+          # Advanced Options for General Workloads
+          # SpotPrice: 0.50  # Set spot price for cost optimization
+          # DisableSimultaneousMultithreading: false
+          # SchedulableMemory: 7000  # MB, adjust based on workload requirements
       Iam:
         AdditionalIamPolicies:
           - Policy: arn:aws:iam::aws:policy/AmazonS3FullAccess
@@ -137,3 +184,50 @@ Tags:
     Value: Terraform
   - Key: Environment
     Value: dev
+
+# Additional Advanced Configuration Options (uncomment and configure as needed)
+
+# Custom Actions for cluster lifecycle events
+# CustomActions:
+#   OnNodeStart:
+#     Script: s3://your-bucket/scripts/on-node-start.sh
+#     Args:
+#       - arg1
+#       - arg2
+#   OnNodeConfigured:
+#     Script: s3://your-bucket/scripts/on-node-configured.sh
+
+# Additional IAM Policies for specific workloads
+# AdditionalIamPolicies:
+#   - Policy: arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
+#   - Policy: arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
+
+# Login Nodes for interactive access (uncomment if needed)
+# LoginNodes:
+#   Pools:
+#     - Name: login-pool
+#       Count: 1
+#       InstanceType: c5.large
+#       Networking:
+#         SubnetIds:
+#           - ${HEAD_NODE_SUBNET_ID}
+#         SecurityGroups:
+#           - ${HEAD_NODE_SG_ID}
+#       Ssh:
+#         KeyName: ${KEY_NAME}
+
+# Directory Service Integration (uncomment if using Active Directory)
+# DirectoryService:
+#   DomainName: corp.example.com
+#   DomainAddr: ldap://corp.example.com
+#   PasswordSecretArn: arn:aws:secretsmanager:region:account:secret:name
+#   DomainReadOnlyUser: CN=ReadOnlyUser,CN=Users,DC=corp,DC=example,DC=com
+#   LdapTlsCaCert: /opt/parallelcluster/shared/directory_service/certificate.crt
+#   LdapTlsReqCert: never
+#   AdditionalSssdConfigs:
+#     override_homedir: /shared/home/%u
+
+# Imds Configuration (Instance Metadata Service)
+# Imds:
+#   Secured: true  # Require IMDSv2
+#   ImdsSupport: v2.0
