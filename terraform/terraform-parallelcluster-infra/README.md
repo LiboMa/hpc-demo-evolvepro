@@ -193,8 +193,8 @@ aws ec2 describe-vpcs --filters "Name=tag:ClusterName,Values=my-hpc-cluster"
 ✅ **GPU-Ready**: Support for H100, A100, and L4 instances
 
 Your AWS ParallelCluster infrastructure is ready for HPC workloads! 🚀
-## 🔒 Sec
-urity Groups Configuration
+
+## 🔒 Security Groups Configuration
 
 ### Head Node Security Group
 - **SSH (22)**: From specified CIDR range
