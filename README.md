@@ -1,13 +1,19 @@
-# HPC one click deployment for Evelop model
+# Evelop model deployment by Parallel Cluster
 
 ## Setup environment
-https://stackoverflow.com/questions/58068818/how-to-use-jupyter-notebooks-in-a-conda-environment
 
+### Implement the Infrastructure
 
-## Setup the
+See the [README.md](terraform_pcluster_iac/README.md)
 
+### Setup the environment
 
-## hpc-demo-evolvepro
+```bash 
+bash -x setup.sh
+```
+
+### Access the portal with Jupyter notebook  
+
 
 ## Refernce 
 
