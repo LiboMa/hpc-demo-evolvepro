@@ -12,7 +12,7 @@ This guide is used for quick setup [EvolvePro](https://github.com/mat10d/EvolveP
 
 See the [README.md](terraform_pcluster_iac/README.md)
 
-### 2. Setup the environment
+### 2. Setup the Evepro model runtime, and model test data and environment
 
 ```bash 
 bash -x setup.sh
