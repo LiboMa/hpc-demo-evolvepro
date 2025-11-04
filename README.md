@@ -24,8 +24,9 @@ This script will install the environment
 
 ### 3. Access the portal with Jupyter notebook  
 
-3.1 get the login token in /var/log/syslog
-3.2 access the jupter url via: http://localhost:8888/ via token
+**get the login token in /var/log/syslog**
+
+**access the jupter url via: http://localhost:8888/ via token**
 
 ## Refernce 
 
