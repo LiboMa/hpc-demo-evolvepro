@@ -2,6 +2,8 @@
 
 Many HCLS IT Engineering Lacks of HPC together with Model deployment experience, but they also need to use the model and deploy it in their daily work.  So that I develop the One-click deployment for the specific model(Evlopro, HCLS), and IaC(Terraform) as well for the customer. So that the similar customer needs can be done quickly.
 
+Sample Deployment Model: EvolvePpro, and we can also add more Models as needed.
+
 # EvolvePro model deployment by Parallel Cluster
 
 This guide is used for quick setup [EvolvePro](https://github.com/mat10d/EvolvePro.git)
